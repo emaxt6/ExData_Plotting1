@@ -1,3 +1,10 @@
+rawfile <- "household_power_consumption.txt"
+rawfilez <- "household_power_consumption.zip"
+url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+if(!file.exists(rawfile)) {
+  download.file(url=url, destfile=rawfilez)
+  unzip(rawfilez)
+}
 #Read provided data file
 data <- read.csv(file="household_power_consumption.txt", sep=";", na.strings="?", stringsAsFactor=F)
 wdata <- subset(data, Date == "1/2/2007" | Date == "2/2/2007")
